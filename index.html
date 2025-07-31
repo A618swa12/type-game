@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💻 بازی تایپ هکری - TryHackMe Style</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
+    body { font-family: 'Vazirmatn', sans-serif; }
+    .terminal-text {
+      font-family: monospace;
+      background-color: #111827;
+      color: #10b981;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      min-height: 120px;
+      white-space: pre-wrap;
+      box-shadow: 0 0 10px #10b98188;
+    }
+    .terminal-text.fail {
+      color: #f87171;
+      box-shadow: 0 0 10px #f8717188;
+    }
+    .terminal-text.success {
+      color: #34d399;
+      box-shadow: 0 0 15px #34d399aa;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+  <header class="bg-gray-800 shadow p-4 text-center text-xl font-bold text-green-400">💻 بازی تایپ امنیتی - نسخه پیشرفته</header>  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-800 p-4 space-y-4 border-l border-green-500 hidden md:block">
+      <h2 class="text-lg font-semibold border-b border-green-600 pb-2">📚 مرحله‌ها</h2>
+      <ul class="space-y-2 text-sm">
+        <li>✅ مرحله ۱: XSS</li>
+        <li>✅ مرحله ۲: SQLi</li>
+        <li>✅ مرحله ۳: Command Injection</li>
+        <li>🚧 مرحله ۴: LFI</li>
+      </ul>
+      <div class="mt-6">
+        <h3 class="font-semibold text-green-400">🎯 هدف:</h3>
+        <p class="text-xs">تایپ سریع و صحیح Payloadهای امنیتی</p>
+      </div>
+    </aside><!-- Main Panel -->
+<main class="flex-1 p-6 space-y-6">
+  <div class="text-center">
+    <h1 class="text-3xl font-bold text-green-300">🔥 تمرین تایپ امنیتی 🔥</h1>
+    <p class="text-sm text-gray-400">کلمات و Payloadهای هکری رو تایپ کن</p>
+  </div>
+
+  <!-- Score & Timer -->
+  <div class="flex justify-between bg-gray-800 p-4 rounded-lg shadow">
+    <div>امتیاز: <span id="score" class="font-bold text-green-400">0</span></div>
+    <div>⏱ زمان باقی‌مانده: <span id="timer" class="text-yellow-400">30</span></div>
+  </div>
+
+  <!-- Terminal Style Word -->
+  <div id="word" class="terminal-text">برای شروع روی استارت کلیک کن...</div>
+
+  <!-- Input -->
+  <input id="input" type="text" placeholder="اینجا تایپ کن و اینتر بزن..."
+         class="w-full p-3 rounded bg-gray-700 text-green-200 placeholder-gray-500 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400">
+
+  <!-- Buttons -->
+  <div class="flex justify-center gap-4">
+    <button id="start" class="bg-green-600 px-4 py-2 rounded hover:bg-green-500">شروع بازی</button>
+    <button id="stop" class="bg-red-600 px-4 py-2 rounded hover:bg-red-500">پایان بازی</button>
+  </div>
+
+  <!-- Records -->
+  <div>
+    <h2 class="text-xl font-semibold border-b border-green-600 pb-2">🏆 رکوردها</h2>
+    <table class="w-full text-sm text-center mt-2">
+      <thead class="bg-green-800 text-green-100">
+        <tr><th>#</th><th>امتیاز</th><th>تاریخ</th></tr>
+      </thead>
+      <tbody id="records" class="bg-gray-800"></tbody>
+    </table>
+  </div>
+</main>
+
+  </div>  <script src="game.js"></script></body>
+</html>
